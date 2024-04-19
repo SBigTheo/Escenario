@@ -6,5 +6,5 @@ void setup(){
 }
 
 void draw(){
-  image(img, space, width, height);
+  image(img, 0, 0, width - space, height - space);
 }
