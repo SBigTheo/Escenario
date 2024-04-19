@@ -8,6 +8,8 @@ PImage derecha2;
 PImage izquierda1;
 PImage izquierda2;
 
+color colorear = color(255, 190, 124);
+
 int posxnave= 0;
 int direccionnave= 1;
 int velocidadnave= 3;
@@ -37,9 +39,12 @@ void setup(){
   izquierda2= loadImage("izq2.png");
   izquierda2.resize(52,64);
   meteorito= loadImage("meteorito.png");
+  meteorito.resize(66,66);
 }
 
-void draw(){  
+
+
+void draw(){
   posxnave +=velocidadnave *direccionnave;
 if(posxnave <= 0 || posxnave >= width - nave.width){
   direccionnave *= -1;
@@ -48,9 +53,12 @@ if(posxnave <= 0 || posxnave >= width - nave.width){
 posxjugador += movimientojugador;
 posxjugador= constrain(posxjugador, 0, 668);
 
+background(0);
 background(escenario);
-  image(nave, posxnave, 30);
+  tint(colorear);
   image  (meteorito, 0 ,0);
+  noTint();
+  image(nave, posxnave, 30);
    if (movimientojugador > 0) {
     if (alternarImagen) {
       image(derecha1, posxjugador, 580);
