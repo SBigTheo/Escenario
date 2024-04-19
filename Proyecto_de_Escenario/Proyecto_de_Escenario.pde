@@ -4,6 +4,8 @@ PImage jugadorfrente;
 
 PImage derecha1;
 PImage derecha2;
+PImage izquierda1;
+PImage izquierda2;
 
 int space= 0;
 int posxnave= 0;
@@ -24,10 +26,14 @@ void setup(){
   jugadorfrente.resize(52, 64);
   nave= loadImage("nave.png");
   nave.resize(120, 67);
-  derecha1 = loadImage("der1.png");
+  derecha1= loadImage("der1.png");
   derecha1.resize(52, 64);
-  derecha2 = loadImage("der2.png");
+  derecha2= loadImage("der2.png");
   derecha2.resize(52, 64);
+  izquierda1= loadImage("izq1.png");
+  izquierda1.resize(52,64);
+  izquierda2= loadImage("izq2.png");
+  izquierda2.resize(52,64);
 }
 
 void draw(){  
@@ -47,6 +53,12 @@ background(escenario);
     } else {
       image(derecha2, posxjugador, 580);
     }
+  } else if (movimientojugador < 0) {
+    if (alternarImagen) {
+      image(izquierda1, posxjugador, 580);
+    } else {
+      image(izquierda2, posxjugador, 580);
+    }
   } else {
     image(jugadorfrente, posxjugador, 580);
   }
@@ -55,9 +67,10 @@ background(escenario);
 void keyPressed(){
   if (key == 'a' || key == 'A'){
     movimientojugador= -velocidadjugador;
+    alternarImagen= !alternarImagen;
   } else if (key == 'd' || key == 'D'){
     movimientojugador= velocidadjugador;
-    alternarImagen = !alternarImagen;
+    alternarImagen= !alternarImagen;
   }
 }
 
