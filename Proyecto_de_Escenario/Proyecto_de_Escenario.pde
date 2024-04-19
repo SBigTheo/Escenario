@@ -1,6 +1,7 @@
 PImage escenario;
 PImage nave;
 PImage jugadorfrente;
+PImage meteorito;
 
 PImage derecha1;
 PImage derecha2;
@@ -14,6 +15,8 @@ int velocidadnave= 3;
 int posxjugador= 0;
 int velocidadjugador= 4;
 int movimientojugador= 0;
+
+int posymeteorito= 0;
 
 boolean alternarImagen;
 
@@ -33,6 +36,7 @@ void setup(){
   izquierda1.resize(52,64);
   izquierda2= loadImage("izq2.png");
   izquierda2.resize(52,64);
+  meteorito= loadImage("meteorito.png");
 }
 
 void draw(){  
@@ -46,6 +50,7 @@ posxjugador= constrain(posxjugador, 0, 668);
 
 background(escenario);
   image(nave, posxnave, 30);
+  image  (meteorito, 0 ,0);
    if (movimientojugador > 0) {
     if (alternarImagen) {
       image(derecha1, posxjugador, 580);
