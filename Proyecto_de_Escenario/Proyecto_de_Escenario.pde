@@ -7,7 +7,6 @@ PImage derecha2;
 PImage izquierda1;
 PImage izquierda2;
 
-int space= 0;
 int posxnave= 0;
 int direccionnave= 1;
 int velocidadnave= 3;
