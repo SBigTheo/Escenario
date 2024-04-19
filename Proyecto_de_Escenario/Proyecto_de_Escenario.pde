@@ -1,5 +1,3 @@
-import ddf.minim.*;
-
 PImage escenario;
 PImage nave;
 PImage jugadorfrente;
@@ -25,12 +23,8 @@ float posxmeteorito;
 
 boolean alternarImagen;
 
-Minim minim;
-AudioPlayer player;
-
 void setup(){
   size(720, 720);
-  minim = new Minim(this);
   escenario= loadImage("escenario.png");
   escenario.resize(720, 720);
   jugadorfrente= loadImage("frente.png");
@@ -49,9 +43,6 @@ void setup(){
   meteorito.resize(66,66);
   posymeteorito= 0;
   posxmeteorito= random(width - meteorito.width);
-  
-  player = minim.loadFile("Mother Earth - MOTHER.mp3");
-  player.play();
 }
 
 void draw(){
