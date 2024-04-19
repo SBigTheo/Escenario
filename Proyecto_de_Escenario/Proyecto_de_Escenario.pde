@@ -18,7 +18,8 @@ int posxjugador= 0;
 int velocidadjugador= 4;
 int movimientojugador= 0;
 
-int posymeteorito= 0;
+float posymeteorito;
+float posxmeteorito;
 
 boolean alternarImagen;
 
@@ -40,9 +41,9 @@ void setup(){
   izquierda2.resize(52,64);
   meteorito= loadImage("meteorito.png");
   meteorito.resize(66,66);
+  posymeteorito= 0;
+  posxmeteorito= random(width - meteorito.width);
 }
-
-
 
 void draw(){
   posxnave +=velocidadnave *direccionnave;
@@ -53,10 +54,16 @@ if(posxnave <= 0 || posxnave >= width - nave.width){
 posxjugador += movimientojugador;
 posxjugador= constrain(posxjugador, 0, 668);
 
-background(0);
+posymeteorito += 3;
+
 background(escenario);
   tint(colorear);
-  image  (meteorito, 0 ,0);
+  image(meteorito, posxmeteorito ,posymeteorito);
+  if (posymeteorito > height) {
+    posymeteorito = 0;
+    posxmeteorito = random(width - meteorito.width);
+  }
+  
   noTint();
   image(nave, posxnave, 30);
    if (movimientojugador > 0) {
